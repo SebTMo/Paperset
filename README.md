@@ -40,13 +40,17 @@ Open your terminal and run:
 ```bash
 git clone https://github.com/SebTMo/Paperset.git
 cd Paperset
+meson setup build
+sudo ninja -C build
 ````
+**The app is now installed**
 
 ### Compiling
 
-Compile the files to an executable:
+Compile the files to an executable for one time use:
 
 ```bash
+cd src/
 gcc main.c -o paperset $(pkg-config --cflags --libs gtk4 libadwaita-1)
 ```
 
@@ -60,6 +64,16 @@ Running the executable:
 ./paperset
 ```
 
+## Unistall
+
+return to the parent directory:
+
+```bash
+cd ~/Paperset/
+sudo ninja -C build uninstall
+cd ..
+rm -r Paperset/
+```
 
 ##  Contact me
 
