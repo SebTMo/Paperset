@@ -1,9 +1,9 @@
 # Paperset
-Minimal Wallpapermanager written in C (WIP)
+A Minimal GTK Wallpapermanager written in C (WIP) for GNOME systems
 
-[![GitHub Repository Größe](https://img.shields.io/github/repo-size/CROXY04/ColorScan-Suite)](https://github.com/CROXY04/ColorScan-Suite)
-[![GitHub letzer Commit](https://img.shields.io/github/last-commit/CROXY04/ColorScan-Suite)](https://github.com/CROXY04/ColorScan-Suite/commits/main)
-[![Hauptsprache](https://img.shields.io/github/languages/top/CROXY04/ColorScan-Suite)](https://github.com/CROXY04/ColorScan-Suite)
+[![GitHub Repository Größe](https://img.shields.io/github/repo-size/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
+[![GitHub letzer Commit](https://img.shields.io/github/last-commit/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/commits/main)
+[![Hauptsprache](https://img.shields.io/github/languages/top/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
 [![Lizenz: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
