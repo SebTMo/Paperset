@@ -25,12 +25,15 @@ A Minimal GTK Wallpapermanager written in C (WIP) for GNOME systems
 - (coming in the future) Widget function for quick changing of your Wallpaper
 ---
 
-##  Installation
+## Diclaimer
+**I am not responsible for any damage to anyones system. This is an experimental app and support is limited. Try it with your own percautions.
 
+##  Installation
+**Fedora** haven't tested on other distros yet.
 For now i'm still focusing on the app itself so no installer is available.
 
 ### Dependencies
-* **C**
+* **meson** to build the app
 * **git** to clone this repo
 * **GNOME** its a GTK application
 
@@ -66,7 +69,7 @@ Running the executable:
 
 ## Unistall
 
-return to the parent directory:
+Return to the parent directory:
 
 ```bash
 cd ~/Paperset/
