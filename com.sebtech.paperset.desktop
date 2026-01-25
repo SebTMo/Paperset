@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=PaperSet
+Comment=Simple Wallpaper Manager
+Exec=/usr/local/bin/paperset
+Icon=paperset
+Terminal=false
+Type=Application
+Categories=Utility;GNOME;GTK;
