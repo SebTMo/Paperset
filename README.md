@@ -47,7 +47,7 @@ cd Paperset
 Compile the files to an executable:
 
 ```bash
-gcc main.c -o paperset
+gcc main.c -o paperset $(pkg-config --cflags --libs gtk4 libadwaita-1)
 ```
 
 -----
