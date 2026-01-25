@@ -38,7 +38,7 @@ For now i'm still focusing on the app itself so no installer is available.
 Open your terminal and run:
 
 ```bash
-git clone [https://github.com/SebTMo/Paperset.git](https://github.com/CROXY04/ColorScan-Suite.git)
+git clone https://github.com/SebTMo/Paperset.git
 cd Paperset
 ````
 
