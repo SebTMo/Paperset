@@ -16,12 +16,15 @@ static void set_wallpaper(GtkButton *button, gpointer user_data) {
 static void on_view_toggled(GtkToggleButton *source, gpointer user_data) {
     gboolean is_list = gtk_toggle_button_get_active(source);
     
+    // Update icon visually
+    gtk_button_set_icon_name(GTK_BUTTON(source), is_list ? "view-list-symbolic" : "view-grid-symbolic");
+
     if (is_list) {
         gtk_flow_box_set_min_children_per_line(GTK_FLOW_BOX(global_flowbox), 1);
         gtk_flow_box_set_max_children_per_line(GTK_FLOW_BOX(global_flowbox), 1);
     } else {
         gtk_flow_box_set_min_children_per_line(GTK_FLOW_BOX(global_flowbox), 2);
-        gtk_flow_box_set_max_children_per_line(GTK_FLOW_BOX(global_flowbox), 6);
+        gtk_flow_box_set_max_children_per_line(GTK_FLOW_BOX(global_flowbox), 12);
     }
 
     for (GtkWidget *child = gtk_widget_get_first_child(global_flowbox); 
@@ -35,12 +38,12 @@ static void on_view_toggled(GtkToggleButton *source, gpointer user_data) {
         if (is_list) {
             gtk_widget_set_hexpand(child, TRUE);
             gtk_widget_set_size_request(child, -1, -1); 
-            gtk_widget_set_size_request(pic, 800, 450); // Large 16:9
+            gtk_widget_set_size_request(pic, 850, 450); 
         } else {
+            // Locked Grid Size: 192px width
             gtk_widget_set_hexpand(child, FALSE);
-            // Forced slot size for Grid
-            gtk_widget_set_size_request(child, 240, 180); 
-            gtk_widget_set_size_request(pic, 220, 124); // Small 16:9
+            gtk_widget_set_size_request(child, 192, 145); 
+            gtk_widget_set_size_request(pic, 192, 101); // 16:9 ratio
         }
     }
     gtk_widget_queue_resize(global_flowbox);
@@ -72,7 +75,7 @@ static void load_wallpapers(GtkWidget *flowbox, const char *path) {
                 
                 GtkWidget *pic = gtk_picture_new_for_filename(full_path);
                 gtk_picture_set_content_fit(GTK_PICTURE(pic), GTK_CONTENT_FIT_COVER);
-                gtk_widget_set_size_request(pic, 220, 124); 
+                gtk_widget_set_size_request(pic, 180, 101); 
 
                 GtkWidget *label = gtk_label_new(name);
                 gtk_label_set_ellipsize(GTK_LABEL(label), PANGO_ELLIPSIZE_END);
@@ -83,13 +86,12 @@ static void load_wallpapers(GtkWidget *flowbox, const char *path) {
                 gtk_box_append(GTK_BOX(vbox), label);
                 
                 g_signal_connect_data(btn, "clicked", G_CALLBACK(set_wallpaper), g_strdup(full_path), (GClosureNotify)g_free, 0);
-                
                 gtk_flow_box_insert(GTK_FLOW_BOX(flowbox), btn, -1);
                 
-                // Set initial grid size on the parent FlowBoxChild
+                // Start as fixed-size grid item
                 GtkWidget *child = gtk_widget_get_last_child(flowbox);
                 gtk_widget_set_hexpand(child, FALSE);
-                gtk_widget_set_size_request(child, 240, 180);
+                gtk_widget_set_size_request(child, 192, 140);
             }
             g_object_unref(info);
         }
@@ -101,7 +103,8 @@ static void load_wallpapers(GtkWidget *flowbox, const char *path) {
 static void activate(AdwApplication *app) {
     GtkWidget *window = adw_application_window_new(GTK_APPLICATION(app));
     gtk_window_set_title(GTK_WINDOW(window), "PaperSet");
-    gtk_window_set_default_size(GTK_WINDOW(window), 1000, 750);
+    gtk_window_set_default_size(GTK_WINDOW(window), 400, 690);
+    
     GtkWidget *root_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
     adw_application_window_set_content(ADW_APPLICATION_WINDOW(window), root_box);
 
@@ -112,28 +115,49 @@ static void activate(AdwApplication *app) {
     gtk_button_set_icon_name(GTK_BUTTON(view_toggle), "view-grid-symbolic");
     adw_header_bar_pack_start(ADW_HEADER_BAR(header), view_toggle);
 
+    const char *scaling_options[] = {"Fill", "Centered", "Scaled", "Stretched", "Zoom", "Spanned", NULL};
+    GtkWidget *scaling_dropdown = gtk_drop_down_new_from_strings(scaling_options);
+    
+    GtkWidget *refresh_btn = gtk_button_new_from_icon_name("view-refresh-symbolic");
+    adw_header_bar_pack_start(ADW_HEADER_BAR(header), refresh_btn);
+
+    GtkWidget *menu_btn = gtk_menu_button_new();
+    gtk_menu_button_set_icon_name(GTK_MENU_BUTTON(menu_btn), "emblem-system-symbolic");
+    GtkWidget *popover = gtk_popover_new();
+    GtkWidget *pop_box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 10);
+
     GtkWidget *search_entry = gtk_search_entry_new();
     gtk_widget_set_hexpand(search_entry, TRUE);
     adw_header_bar_set_title_widget(ADW_HEADER_BAR(header), search_entry);
 
+    // Scrolled Window setup (Always show scrollbar when needed)
     GtkWidget *scrolled = gtk_scrolled_window_new();
     gtk_widget_set_vexpand(scrolled, TRUE);
+    gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scrolled), GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
     gtk_box_append(GTK_BOX(root_box), scrolled);
+  
+    gtk_box_append(GTK_BOX(pop_box), gtk_label_new("Wallpaper Scaling:"));
+    gtk_box_append(GTK_BOX(pop_box), scaling_dropdown);
+    gtk_popover_set_child(GTK_POPOVER(popover), pop_box);
+    gtk_menu_button_set_popover(GTK_MENU_BUTTON(menu_btn), popover);
+    adw_header_bar_pack_end(ADW_HEADER_BAR(header), menu_btn);
 
     global_flowbox = gtk_flow_box_new();
     gtk_widget_set_valign(global_flowbox, GTK_ALIGN_START);
-    gtk_flow_box_set_min_children_per_line(GTK_FLOW_BOX(global_flowbox), 2);
-    gtk_flow_box_set_max_children_per_line(GTK_FLOW_BOX(global_flowbox), 6);
-    gtk_flow_box_set_column_spacing(GTK_FLOW_BOX(global_flowbox), 10);
-    gtk_flow_box_set_row_spacing(GTK_FLOW_BOX(global_flowbox), 20);
     
-    // Fixed Margins
+    // Start in Grid Mode (Multi-column)
+    gtk_flow_box_set_min_children_per_line(GTK_FLOW_BOX(global_flowbox), 2);
+    gtk_flow_box_set_max_children_per_line(GTK_FLOW_BOX(global_flowbox), 12);
+    gtk_flow_box_set_column_spacing(GTK_FLOW_BOX(global_flowbox), 12);
+    gtk_flow_box_set_row_spacing(GTK_FLOW_BOX(global_flowbox), 18);
+    
     gtk_widget_set_margin_start(global_flowbox, 20);
     gtk_widget_set_margin_end(global_flowbox, 20);
     gtk_widget_set_margin_top(global_flowbox, 20);
     gtk_widget_set_margin_bottom(global_flowbox, 20);
 
     gtk_scrolled_window_set_child(GTK_SCROLLED_WINDOW(scrolled), global_flowbox);
+
     g_signal_connect(view_toggle, "toggled", G_CALLBACK(on_view_toggled), NULL);
     g_signal_connect(search_entry, "search-changed", G_CALLBACK(on_search_changed), NULL);
     
@@ -142,7 +166,7 @@ static void activate(AdwApplication *app) {
 }
 
 int main(int argc, char **argv) {
-    AdwApplication *app = adw_application_new("com.seb.paperset", G_APPLICATION_DEFAULT_FLAGS);
+    AdwApplication *app = adw_application_new("com.sebtech.paperset", G_APPLICATION_DEFAULT_FLAGS);
     g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
     return g_application_run(G_APPLICATION(app), argc, argv);
 }
