@@ -23,10 +23,11 @@ A Minimal GTK Wallpapermanager written in C (WIP) for GNOME systems
 - Auto Scan of library
 - Animated changing of Wallpaper
 - (coming in the future) Widget function for quick changing of your Wallpaper
+
 ---
 
 ## Diclaimer
-**I am not responsible for any damage to anyones system. This is an experimental app and support is limited. Try it with your own percautions.
+**I am not responsible for any damage to anyones system. This is an experimental app and support is limited. Try it with your own percautions.**
 
 ##  Installation
 **Fedora** haven't tested on other distros yet.
