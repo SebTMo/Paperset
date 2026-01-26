@@ -1,5 +1,5 @@
 # Paperset
-A Minimal GTK Wallpapermanager written in C (WIP) for GNOME systems
+A Minimal GTK Wallpapermanager written in C for Linux systems
 ---
 <img src="https://github.com/SebTMo/Paperset/blob/main/screenshot.png" alt="-" style="width: 20vw;" />
 
