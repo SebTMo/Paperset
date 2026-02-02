@@ -6,7 +6,6 @@ A Minimal GTK Wallpapermanager written in C for Linux systems
 [![GitHub Repository Größe](https://img.shields.io/github/repo-size/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
 [![GitHub letzer Commit](https://img.shields.io/github/last-commit/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/commits/main)
 [![Hauptsprache](https://img.shields.io/github/languages/top/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
-[![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/SebTMo/Paperset/ci.yml)](https://github.com/SebTMo/Paperset/actions)
 [![GitHub contributors](https://img.shields.io/github/contributors/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/graphs/contributors)
 [![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/commits)  
 [![homebrew downloads](https://img.shields.io/homebrew/installs/dm/paperset?logo=homebrew)](https://formulae.brew.sh/formula/paperset)
