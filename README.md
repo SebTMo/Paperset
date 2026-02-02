@@ -6,9 +6,8 @@ A Minimal GTK Wallpapermanager written in C for Linux systems
 [![GitHub Repository Größe](https://img.shields.io/github/repo-size/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
 [![GitHub letzer Commit](https://img.shields.io/github/last-commit/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/commits/main)
 [![Hauptsprache](https://img.shields.io/github/languages/top/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
-[![Lizenz: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Lizenz: GPL 3.0](https://upload.wikimedia.org/wikipedia/commons/9/93/GPLv3_Logo.svg)](https://www.gnu.org/licenses/gpl-3.0.de.html)
 [![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/SebTMo/Paperset/ci.yml)](https://github.com/SebTMo/Paperset/actions)
-[![GitHub license](https://img.shields.io/github/license/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/blob/main/LICENSE)
 [![GitHub contributors](https://img.shields.io/github/contributors/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/graphs/contributors)
 [![GitHub top language](https://img.shields.io/github/languages/top/SebTMo/Paperset?label=)](https://github.com/SebTMo/Paperset)
 [![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/commits)  
@@ -17,8 +16,6 @@ A Minimal GTK Wallpapermanager written in C for Linux systems
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/SebTMo/Paperset?logo=github)](https://github.com/SebTMo/Paperset/releases)
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/paperset.svg)](https://repology.org/project/paperset/versions)
 [![Packaging status](https://repology.org/badge/tiny-repos/paperset.svg)](https://repology.org/project/paperset/versions)
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/SebTMo/Paperset)
-[![中文README](https://img.shields.io/badge/%E4%B8%AD%E6%96%87-README-red)](README-cn.md)
 
 ---
 
