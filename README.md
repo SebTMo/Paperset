@@ -8,7 +8,6 @@ A Minimal GTK Wallpapermanager written in C for Linux systems
 [![Hauptsprache](https://img.shields.io/github/languages/top/SebTMo/Paperset)](https://github.com/SebTMo/Paperset)
 [![GitHub contributors](https://img.shields.io/github/contributors/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/graphs/contributors)
 [![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/SebTMo/Paperset)](https://github.com/SebTMo/Paperset/commits)  
-[![homebrew downloads](https://img.shields.io/homebrew/installs/dm/paperset?logo=homebrew)](https://formulae.brew.sh/formula/paperset)
 [![GitHub all releases](https://img.shields.io/github/downloads/SebTMo/Paperset/total?logo=github)](https://github.com/SebTMo/Paperset/releases)  
 [![GitHub release (with filter)](https://img.shields.io/github/v/release/SebTMo/Paperset?logo=github)](https://github.com/SebTMo/Paperset/releases)
 [![latest packaged version(s)](https://repology.org/badge/latest-versions/paperset.svg)](https://repology.org/project/paperset/versions)
