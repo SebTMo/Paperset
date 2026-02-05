@@ -54,7 +54,7 @@ sudo ninja -C build
 ````
 **The app is now installed**
 
-### Compiling
+### Compiling (portable variant)
 
 Compile the files to an executable for one time use:
 
@@ -66,8 +66,13 @@ gcc main.c -o paperset $(pkg-config --cflags --libs gtk4 libadwaita-1)
 ---
 
 ## Usage
+If installed with Meson the app should be in the app menu or can be started in the terminal with:
 
-Running the executable:
+```bash
+paperset
+```
+
+Running the executable(Portable variant):
 
 ```bash
 ./paperset
