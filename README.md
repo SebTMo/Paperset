@@ -35,13 +35,13 @@ A Minimal GTK Wallpapermanager written in C for Linux systems
 **I am not responsible for any damage to anyones system. This is an experimental app and support is limited. Try it with your own percautions.**
 
 ##  Installation
-**Fedora** haven't tested on other distros yet.
+**Fedora (recommended)** haven't tested on other distros yet.
 For now i'm still focusing on the app itself so no installer is available.
 
 ### Dependencies
 * **meson** to build the app
 * **git** to clone this repo
-* **GNOME** its a GTK application
+* **GTK compatability** its a GTK application
 
 ### Install
 Open your terminal and run:
