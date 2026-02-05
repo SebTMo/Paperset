@@ -51,7 +51,7 @@ Open your terminal and run:
 git clone https://github.com/SebTMo/Paperset.git
 cd Paperset
 meson setup build
-sudo ninja -C build
+sudo ninja -C build install
 ````
 **The app is now installed**
 
