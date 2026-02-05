@@ -40,9 +40,9 @@ I haven't tested on other distros yet.
 For now i'm still focusing on the app itself so no installer on Flatpak or Appimage is available.
 
 ### Dependencies
-* **meson** to build the app
-* **git** to clone this repo
-* **GTK compatability** its a GTK application
+* **meson**
+* **git**
+* **gtk** 
 
 ### Install
 Open your terminal and run:
@@ -94,7 +94,7 @@ rm -r Paperset/
 
 **SebTech**
 
-  * **GitHub:** [https://github.com/SebTMo](https://www.google.com/search?q=https://github.com/CROXY04)
+  * **GitHub:** [https://github.com/SebTMo](https://github.com/SebTMo)
   * **E-Mail:** [migrating]
 
 -----
